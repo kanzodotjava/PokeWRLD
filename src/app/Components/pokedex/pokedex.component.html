@@ -1,0 +1,22 @@
+<div class="pokedex">
+  <h1>Pokedex</h1>
+  <button class="dashboard-button" (click)="loadDashboard()">Dashboard</button>
+  <p></p>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search by name or ID" [(ngModel)]="searchQuery" (input)="searchPokemon()">
+  </div>
+  <p></p>
+  <div class="pokemon-card-list" *ngIf="pokemons.length > 0">
+    <div class="pokemon-card" *ngFor="let pokemon of pokemons" [ngClass]="'type-' + pokemon.types[0].toLowerCase()">
+      <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
+      <h2>{{ pokemon.name }}</h2>
+      <p>ID: {{ pokemon.id }}</p>
+      <p>Height: {{ pokemon.height }} m</p>
+      <p>Weight: {{ pokemon.weight }} kg</p>
+      <div class="types">
+        <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
+      </div>
+    </div>
+  </div>
+</div>

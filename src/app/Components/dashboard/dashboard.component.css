@@ -1,0 +1,68 @@
+/* Estilo para a homepage */
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+
+.dashboard-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+  .dashboard-container h2 {
+    font-family: 'Honk';
+    color: #333;
+    text-align: center;
+    font-size: 3.5em;
+  }
+
+  .dashboard-container div {
+    margin-bottom: 20px;
+  }
+
+  .dashboard-container h3 {
+    color: #555;
+  }
+
+  .dashboard-container p {
+    margin-bottom: 10px;
+  }
+
+  .dashboard-container input[type="text"],
+  .dashboard-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .dashboard-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+    .dashboard-container button:hover {
+      background-color: #0056b3;
+    }
+
+.pokedex-button {
+  padding: 10px 20px;
+  background-color: #4CAF50; /* Cor de fundo verde */
+  color: black; /* Cor do texto branca */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block; /* Torna o botão um elemento de bloco para ocupar a largura total disponível */
+  margin: 0 auto;
+}
+
+  .pokedex-button:hover {
+    background-color: #45a049; /* Altera a cor de fundo quando o cursor passa sobre o botão */
+  }

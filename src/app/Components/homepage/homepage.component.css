@@ -1,0 +1,57 @@
+/* Estilo para a homepage */
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+
+
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+  .homepage-container h1 {
+    font-size: 3.5rem;
+    font-weight: lighter;
+    font-family: 'Honk';
+    margin-bottom: 20px;
+  }
+
+  .homepage-container img {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  .homepage-container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .homepage-container label {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .homepage-container input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 250px;
+  }
+
+  .homepage-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+    .homepage-container button:hover {
+      background-color: #0056b3;
+    }

@@ -1,0 +1,21 @@
+<div class="dashboard-container">
+  <h2>DASHBOARD</h2>
+  <div>
+    <button class="pokedex-button" (click)="openPokedex()">Open PokeDEX</button>
+    <p></p>
+    <h3>User information:</h3>
+    <p><strong>Username:</strong> {{ userInfo.username }}</p>
+    <p><strong>Password:</strong> {{ userInfo.password }}</p>
+  </div>
+  <div>
+    <h3>Change username:</h3>
+    <input type="text" [(ngModel)]="newUsername" placeholder="New username">
+    <button (click)="changeUsername()">Change</button>
+  </div>
+  <div>
+    <h3>Change password:</h3>
+    <input type="password" [(ngModel)]="newPassword" placeholder="New password">
+    <button (click)="changePassword()">Change</button>
+
+  </div>
+</div> 
