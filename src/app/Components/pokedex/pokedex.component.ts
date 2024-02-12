@@ -29,6 +29,7 @@ export class PokedexComponent implements OnInit {
   }
 
   searchPokemon() {
+    console.log("SQ "+this.searchQuery);
     if (!this.searchQuery.trim()) {
       this.filteredPokemons = this.pokemons;
       return;
@@ -40,6 +41,7 @@ export class PokedexComponent implements OnInit {
     );
 
     this.filteredPokemons = searchResult;
+    return;
   }
 
   getPokemonImage(id: number): string {

@@ -20,5 +20,8 @@ export class PokemonService {
   getPokemonImage(id: number): string {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
   }
+  public getPokemonById(id: number): Observable<Pokemon> {
+    return this.http.get<Pokemon>(`${this.url}/${id}`);
+  }
 }
 

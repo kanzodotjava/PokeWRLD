@@ -8,6 +8,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { PokedexComponent } from './Components/pokedex/pokedex.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonTypeBackgroundPipe } from "./Pipes/pokemontypebackground.pipe";
+import { PokemonDetailComponent } from './Components/pokemondetail/pokemondetail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { PokemonTypeBackgroundPipe } from "./Pipes/pokemontypebackground.pipe";
     HomepageComponent,
     DashboardComponent,
     PokedexComponent,
-    PokemonTypeBackgroundPipe
+    PokemonTypeBackgroundPipe,
+    PokemonDetailComponent
   ],
   imports: [
     BrowserModule,

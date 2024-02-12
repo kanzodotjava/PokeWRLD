@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
+
+
+.pokemon-detail h1 {
+  padding: 20px;
+  text-align: center;
+  font-family: 'Honk';
+  font-size: 2.5em;
+}
+
+.pokemon-detail {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+  .pokemon-detail img {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+
+
+  .pokemon-detail p {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #555;
+  }
+
+.types {
+  margin-top: 10px;
+}
+
+  .types span {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.9em;
+    margin-right: 5px;
+    font-family: 'Roboto', sans-serif;
+  }
+
+.back-button {
+  display: block;
+  width: 150px;
+  margin: 20px auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+  .back-button:hover {
+    background-color: #0056b3;
+  }

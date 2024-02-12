@@ -1,0 +1,12 @@
+<div class="pokemon-detail">
+  <h1>{{ pokemon.name }}</h1>
+  <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
+  <p>ID: {{ pokemon.id }}</p>
+  <p>Height: {{ pokemon.height }} m</p>
+  <p>Weight: {{ pokemon.weight }} kg</p>
+  <p>Family: {{ pokemon.family }}</p>
+  <div class="types">
+    <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
+  </div>
+  <button class="back-button" (click)="goBack()">Back</button>
+</div>
