@@ -140,6 +140,12 @@
       background-color: #0056b3;
     }
 
+.pokemon-card:hover {
+  transform: scale(1.05); /* Aumenta em 5% quando passa o mouse */
+  background-color: #dcdcdc;
+  cursor: pointer; /* Muda a cor de fundo quando passa o mouse */
+}
+
 /*.pokemon-card.type-bug {
   background-color: #26de81;
 }

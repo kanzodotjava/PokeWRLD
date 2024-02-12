@@ -8,17 +8,15 @@
   </div>
   <p></p>
   <div class="pokemon-card-list" *ngIf="pokemons.length > 0">
-    <a *ngFor="let pokemon of filteredPokemons" [routerLink]="['/pokemon', pokemon.id]">
+    <div *ngFor="let pokemon of filteredPokemons" [routerLink]="['/pokemon', pokemon.id]">
       <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()">
         <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
         <h2>{{ pokemon.name }}</h2>
-        <p>ID: {{ pokemon.id }}</p>
-        <p>Height: {{ pokemon.height }} m</p>
-        <p>Weight: {{ pokemon.weight }} kg</p>
+        <p>Id: {{ pokemon.id }}</p>
         <div class="types">
           <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
         </div>
       </div>
-    </a>
+    </div>
   </div>
 </div>
