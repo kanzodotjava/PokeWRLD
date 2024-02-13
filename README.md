@@ -54,7 +54,7 @@ Angular@CLI-16.0.0
 1. Clone the repo
 
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/kanzodotjava/PokeWRLD.git
 ```
 
 2. Install NPM packages
