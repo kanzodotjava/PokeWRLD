@@ -92,7 +92,7 @@ Contributions are what make the open source community such an amazing place to b
 
 ## License
 
-Distributed under the MIT License. See [LICENSE](https://github.com/kanzodotjava/PokeWRLD/blob/main/LICENSE.md) for more information.
+Distributed under the MIT License. See [LICENSE]([https://github.com/kanzodotjava/PokeWRLD/blob/main/LICENSE.md](https://github.com/kanzodotjava/PokeWRLD/blob/b9bae6cc93f0dbd7ad4859e66a03b9f1ec3cb2ff/LICENSE.md)) for more information.
 
 ## Authors
 
