@@ -10,8 +10,8 @@ import { PokemonDetailComponent } from './Components/pokemondetail/pokemondetail
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'pokemons', component: PokedexComponent },
-  { path: 'pokemon/:id', component: PokemonDetailComponent },
+  { path: 'pokemons', component: PokedexComponent, canActivate: [AuthGuard] },
+  { path: 'pokemon/:id', component: PokemonDetailComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

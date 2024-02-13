@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PokemonService } from '../../Services/pokemon.service';
 import { Pokemon } from '../../Models/pokemon';
-import { PokemonDetailComponent } from '../pokemondetail/pokemondetail.component';
 
 @Component({
   selector: 'app-pokedex',
@@ -15,8 +14,6 @@ export class PokedexComponent implements OnInit {
   searchQuery: string = '';
   showFavorites: boolean = false;
   favoritePokemons: Pokemon[] = [];
-
-
 
   constructor(private router: Router, private pokemonService: PokemonService) { }
 
@@ -32,7 +29,7 @@ export class PokedexComponent implements OnInit {
       }
     );
   }
-
+  
   searchPokemon() {
     console.log("SQ " + this.searchQuery);
     if (!this.searchQuery.trim()) {
@@ -62,8 +59,6 @@ export class PokedexComponent implements OnInit {
     this.showFavorites = !this.showFavorites;
   }
 
-
-
   onMouseEnter(pokemon: any): void {
     if (!this.showFavorites && !pokemon.favorite) {
       pokemon.showFavoriteButton = true;
@@ -77,15 +72,15 @@ export class PokedexComponent implements OnInit {
   }
 
   addToFavorites(pokemon: Pokemon) {
-    if (!this.favoritePokemons.includes(pokemon)) {
-      this.favoritePokemons.push(pokemon);
-    }
+    this.pokemonService.addToFavorites(pokemon);
+    this.favoritePokemons = this.pokemonService.getAllFavorites();
   }
 
-  toggleFavorites() {
-    this.showFavorites = !this.showFavorites;
+  removeFromFavorites(pokemon: Pokemon) {
+    this.pokemonService.removeFromFavorites(pokemon);
+    this.favoritePokemons = this.pokemonService.getAllFavorites();
   }
-
+  
   viewPokemonDetails(pokemonId: number): void {
     this.router.navigate(['/pokemon', pokemonId]);
   }

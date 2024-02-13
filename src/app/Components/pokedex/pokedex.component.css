@@ -146,6 +146,24 @@
 }
 
 /* Adicione esses estilos ao seu arquivo CSS */
+.favorite-button {
+  width: 150px;
+  height: 40px;
+  background-color: #ff6a00;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: block;
+  margin-top: 10px;
+}
+.favorite-button:hover {
+  background-color: #ffd800;
+}
 
 
 

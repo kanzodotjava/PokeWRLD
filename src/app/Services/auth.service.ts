@@ -9,7 +9,6 @@ export class AuthService {
   constructor() { }
 
   login(username: string, password: string): boolean {
-    // Lógica de autenticação simulada
     if (username === 'admin' && password === 'admin') {
       this.isAuthenticated = true;
       return true;

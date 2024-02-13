@@ -1,10 +1,11 @@
-<!-- pokedex.component.html -->
 <div class="pokedex">
   <h1>Pokedex</h1>
   <div class="button-container">
     <button class="dashboard-button" (click)="loadDashboard()">Dashboard</button>
-    <div class="button-margin"></div> <!-- Espaço entre os botões -->
-    <button class="favorites-button" (click)="toggleFavorites()">Favorites</button>
+    <div class="button-margin"></div> 
+    <button class="favorites-button" (click)="toggleFavoritesMode()">
+      {{ showFavorites ? 'Show All Pokemons' : 'Show Favorites' }}
+    </button>
   </div>
   <p></p>
 
@@ -12,31 +13,35 @@
     <input type="text" placeholder="Search by name or ID" [(ngModel)]="searchQuery" (input)="searchPokemon()">
   </div>
   <p></p>
-  <div class="pokemon-card-list" *ngIf="!showFavorites && pokemons.length > 0">
-    <div *ngFor="let pokemon of filteredPokemons">
-      <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()" (mouseenter)="onMouseEnter(pokemon)" (mouseleave)="onMouseLeave()" (click)="viewPokemonDetails(pokemon.id)">
-        <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
-        <h2>{{ pokemon.name }}</h2>
-        <p>ID: {{ pokemon.id }}</p>
-        <div class="types">
-          <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="favorites-container" *ngIf="showFavorites && favoritePokemons.length > 0">
-    <div *ngFor="let pokemon of favoritePokemons">
-      <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()" (mouseenter)="onMouseEnter(pokemon)" (mouseleave)="onMouseLeave()" (click)="viewPokemonDetails(pokemon.id)">
-        <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
-        <h2>{{ pokemon.name }}</h2>
-        <p>ID: {{ pokemon.id }}</p>
-        <p>Height: {{ pokemon.height }} m</p>
-        <p>Weight: {{ pokemon.weight }} kg</p>
-        <div class="types">
-          <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
 
+  <div class="pokemon-card-list">
+    <div *ngFor="let pokemon of filteredPokemons">
+      <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()" (click)="viewPokemonDetails(pokemon.id)">
+        <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
+        <h2>{{ pokemon.name }}</h2>
+        <p>ID: {{ pokemon.id }}</p>
+        <div class="types">
+          <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
+        </div>
+        <button class="favorite-button" (click)="$event.stopPropagation(); addToFavorites(pokemon)">
+          Add to Favorites
+        </button>
+        <div class="card-content" (click)="viewPokemonDetails(pokemon.id)">
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <div class="favorites-container" *ngIf="showFavorites && favoritePokemons.length > 0">
+      <div *ngFor="let pokemon of favoritePokemons">
+        <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()" (click)="viewPokemonDetails(pokemon.id)">
+          <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
+          <h2>{{ pokemon.name }}</h2>
+          <p>ID: {{ pokemon.id }}</p>
+          <p>Height: {{ pokemon.height }} m</p>
+          <p>Weight: {{ pokemon.weight }} kg</p>
+          <div class="types">
+            <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
+          </div>
+        </div>
+      </div>
+    </div>

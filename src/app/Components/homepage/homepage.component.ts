@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from '../../Services/auth.service'; // Importe o serviço de autenticação
+import { AuthService } from '../../Services/auth.service'; 
 
 @Component({
   selector: 'app-homepage',
@@ -15,7 +15,6 @@ export class HomepageComponent {
 
   login() {
     if (this.authService.login(this.username, this.password)) {
-      // Redireciona para a próxima página após o login bem-sucedido
       this.router.navigate(['/dashboard']);
     } else {
       alert('Credenciais inválidas. Tente novamente.');

@@ -1,4 +1,3 @@
-// pokemontypebackground.pipe.ts
 import { Pipe, PipeTransform } from '@angular/core';
 
 interface TypeColor {

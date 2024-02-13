@@ -1,4 +1,3 @@
-// pokemon.model.ts
 export interface Pokemon {
   id: number;
   name: string;
@@ -6,6 +5,6 @@ export interface Pokemon {
   weight: number;
   types: string[];
   family: string;
-  favorite: boolean; // Adicionando a propriedade favorite
+  favorite: boolean; 
   showFavoriteButton: boolean;
 }

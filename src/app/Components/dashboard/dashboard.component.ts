@@ -21,14 +21,14 @@ export class DashboardComponent implements OnInit {
 
   changeUsername() {
     this.userService.changeUsername(this.newUsername);
-    this.newUsername = ''; // Limpar o campo de entrada
-    this.userInfo = this.userService.getUserInfo(); // Atualizar as informações do usuário exibidas
+    this.newUsername = ''; 
+    this.userInfo = this.userService.getUserInfo();
   }
 
   changePassword() {
     this.userService.changePassword(this.newPassword);
-    this.newPassword = ''; // Limpar o campo de entrada
-    this.userInfo = this.userService.getUserInfo(); // Atualizar as informações do usuário exibidas
+    this.newPassword = ''; 
+    this.userInfo = this.userService.getUserInfo();
   }
    openPokedex() {
     this.router.navigate(['/pokemons']);
