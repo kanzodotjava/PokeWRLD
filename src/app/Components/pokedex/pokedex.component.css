@@ -94,7 +94,6 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   display: block;
-  margin: 0 auto;
 }
 
   .dashboard-button:hover {
@@ -146,66 +145,46 @@
   cursor: pointer; /* Muda a cor de fundo quando passa o mouse */
 }
 
-/*.pokemon-card.type-bug {
-  background-color: #26de81;
+/* Adicione esses estilos ao seu arquivo CSS */
+
+
+
+.favorites-button {
+  width: 150px;
+  height: 40px;
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  display: block;
+
 }
 
-.pokemon-card.type-dragon {
-  background-color: #ffeaa7;
+  .favorites-button:hover {
+    background-color: #0056b3;
+  }
+
+
+.favorites-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start; /* Alinha os favoritos da esquerda para a direita */
 }
 
-.pokemon-card.type-electric {
-  background-color: #fed330;
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centraliza verticalmente */
 }
 
-.pokemon-card.type-fairy {
-  background-color: #FF0069;
+.button-margin {
+  margin: 0 5px; /* Ajuste a margem conforme necessário */
 }
 
-.pokemon-card.type-fighting {
-  background-color: #30336b;
-}
 
-.pokemon-card.type-fire {
-  background-color: #f0932b;
-}
-
-.pokemon-card.type-flying {
-  background-color: #81ecec;
-}
-
-.pokemon-card.type-grass {
-  background-color: #00b894;
-}
-
-.pokemon-card.type-ground {
-  background-color: #EFB549;
-}
-
-.pokemon-card.type-ghost {
-  background-color: #a55eea;
-}
-
-.pokemon-card.type-ice {
-  background-color: #74b9ff;
-}
-
-.pokemon-card.type-normal {
-  background-color: #95afc0;
-}
-
-.pokemon-card.type-poison {
-  background-color: #6c5ce7;
-}
-
-.pokemon-card.type-psychic {
-  background-color: #a29bfe;
-}
-
-.pokemon-card.type-rock {
-  background-color: #2d3436;
-}
-
-.pokemon-card.type-water {
-  background-color: #0190FF;
-}*/

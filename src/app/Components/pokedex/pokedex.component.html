@@ -1,20 +1,40 @@
+<!-- pokedex.component.html -->
 <div class="pokedex">
   <h1>Pokedex</h1>
-  <button class="dashboard-button" (click)="loadDashboard()">Dashboard</button>
+  <div class="button-container">
+    <button class="dashboard-button" (click)="loadDashboard()">Dashboard</button>
+    <div class="button-margin"></div> <!-- Espaço entre os botões -->
+    <button class="favorites-button" (click)="toggleFavorites()">Favorites</button>
+  </div>
   <p></p>
 
   <div class="search-bar">
     <input type="text" placeholder="Search by name or ID" [(ngModel)]="searchQuery" (input)="searchPokemon()">
   </div>
   <p></p>
-  <div class="pokemon-card-list" *ngIf="pokemons.length > 0">
-    <div *ngFor="let pokemon of filteredPokemons" [routerLink]="['/pokemon', pokemon.id]">
-      <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()">
+  <div class="pokemon-card-list" *ngIf="!showFavorites && pokemons.length > 0">
+    <div *ngFor="let pokemon of filteredPokemons">
+      <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()" (mouseenter)="onMouseEnter(pokemon)" (mouseleave)="onMouseLeave()" (click)="viewPokemonDetails(pokemon.id)">
         <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
         <h2>{{ pokemon.name }}</h2>
-        <p>Id: {{ pokemon.id }}</p>
+        <p>ID: {{ pokemon.id }}</p>
         <div class="types">
           <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="favorites-container" *ngIf="showFavorites && favoritePokemons.length > 0">
+    <div *ngFor="let pokemon of favoritePokemons">
+      <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()" (mouseenter)="onMouseEnter(pokemon)" (mouseleave)="onMouseLeave()" (click)="viewPokemonDetails(pokemon.id)">
+        <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
+        <h2>{{ pokemon.name }}</h2>
+        <p>ID: {{ pokemon.id }}</p>
+        <p>Height: {{ pokemon.height }} m</p>
+        <p>Weight: {{ pokemon.weight }} kg</p>
+        <div class="types">
+          <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
+
         </div>
       </div>
     </div>

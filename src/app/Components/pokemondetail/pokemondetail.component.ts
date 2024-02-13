@@ -12,6 +12,9 @@ export class PokemonDetailComponent implements OnInit {
   pokemonId!: number;
   pokemon!: Pokemon;
 
+  showFavorites: boolean = false;
+  favoritePokemons: Pokemon[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -42,6 +45,12 @@ export class PokemonDetailComponent implements OnInit {
 
   getPokemonImage(id: number): string {
     return this.pokemonService.getPokemonImage(id);
+  }
+
+  addToFavorites(pokemon: Pokemon) {
+    if (!this.favoritePokemons.includes(pokemon)) {
+      this.favoritePokemons.push(pokemon);
+    }
   }
 
 }

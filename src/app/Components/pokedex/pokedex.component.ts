@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PokemonService } from '../../Services/pokemon.service';
 import { Pokemon } from '../../Models/pokemon';
+import { PokemonDetailComponent } from '../pokemondetail/pokemondetail.component';
 
 @Component({
   selector: 'app-pokedex',
@@ -12,6 +13,10 @@ export class PokedexComponent implements OnInit {
   pokemons: Pokemon[] = [];
   filteredPokemons: Pokemon[] = [];
   searchQuery: string = '';
+  showFavorites: boolean = false;
+  favoritePokemons: Pokemon[] = [];
+
+
 
   constructor(private router: Router, private pokemonService: PokemonService) { }
 
@@ -29,7 +34,7 @@ export class PokedexComponent implements OnInit {
   }
 
   searchPokemon() {
-    console.log("SQ "+this.searchQuery);
+    console.log("SQ " + this.searchQuery);
     if (!this.searchQuery.trim()) {
       this.filteredPokemons = this.pokemons;
       return;
@@ -46,5 +51,42 @@ export class PokedexComponent implements OnInit {
 
   getPokemonImage(id: number): string {
     return this.pokemonService.getPokemonImage(id);
+  }
+
+  toggleFavoritesMode(): void {
+    if (this.showFavorites) {
+      this.filteredPokemons = [...this.pokemons];
+    } else {
+      this.filteredPokemons = this.pokemons.filter(pokemon => pokemon.favorite);
+    }
+    this.showFavorites = !this.showFavorites;
+  }
+
+
+
+  onMouseEnter(pokemon: any): void {
+    if (!this.showFavorites && !pokemon.favorite) {
+      pokemon.showFavoriteButton = true;
+    }
+  }
+
+  onMouseLeave(): void {
+    this.filteredPokemons.forEach(pokemon => {
+      pokemon.showFavoriteButton = false;
+    });
+  }
+
+  addToFavorites(pokemon: Pokemon) {
+    if (!this.favoritePokemons.includes(pokemon)) {
+      this.favoritePokemons.push(pokemon);
+    }
+  }
+
+  toggleFavorites() {
+    this.showFavorites = !this.showFavorites;
+  }
+
+  viewPokemonDetails(pokemonId: number): void {
+    this.router.navigate(['/pokemon', pokemonId]);
   }
 }

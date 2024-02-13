@@ -6,4 +6,6 @@ export interface Pokemon {
   weight: number;
   types: string[];
   family: string;
+  favorite: boolean; // Adicionando a propriedade favorite
+  showFavoriteButton: boolean;
 }
