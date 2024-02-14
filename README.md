@@ -13,7 +13,7 @@
     <a href="https://github.com/kanzodotjava/PokeWRLD"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/kanzodotjava/PokeWRLD">View Demo</a>
+    <a href="https://pokewrld.netlify.app/">View Demo</a>
     .
     <a href="https://github.com/kanzodotjava/PokeWRLD/issues">Report Bug</a>
     .
