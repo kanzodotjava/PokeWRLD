@@ -1,0 +1,38 @@
+<h1>PokéWRLD Battles</h1>
+
+<div class="button-container">
+  <button class="dashboard-button" (click)="goToDashboard()">Dashboard</button>
+  <div class="button-margin"></div>
+  <button class="dashboard-button" (click)="goToPokedex()">Pokedex</button>
+</div>
+<div class="container">
+  <div class="search-bar">
+    <label for="pokemonA">Pokemon A:</label>
+    <input type="text" id="pokemonA" [(ngModel)]="pokemonA" (input)="filterPokemonA(pokemonA)">
+    <div class="pokemon-list">
+      <div *ngFor="let pokemon of filteredPokemonListA" class="pokemon-item-display" (click)="selectPokemonA(pokemon)">
+        <img [src]="getPokemonImage(pokemon.id)" alt="{{ pokemon.name }}">
+        {{ pokemon.name }}
+      </div>
+    </div>
+  </div>
+  <p></p>
+  <div class="search-bar">
+    <label for="pokemonB">Pokemon B:</label>
+    <input type="text" id="pokemonB" [(ngModel)]="pokemonB" (input)="filterPokemonB(pokemonB)">
+    <div class="pokemon-list">
+      <div *ngFor="let pokemon of filteredPokemonListB" class="pokemon-item-display" (click)="selectPokemonB(pokemon)">
+        <img [src]="getPokemonImage(pokemon.id)" alt="{{ pokemon.name }}">
+        {{ pokemon.name }}
+      </div>
+    </div>
+  </div>
+</div>
+<div width="100%" align="center">
+  <button (click)="simulateBattle()">FIGHT!</button>
+  <div *ngIf="battleResult">
+    <h2>Battle Result:</h2>
+    <p>{{ battleResult }}</p>
+  </div>
+</div>
+

@@ -5,6 +5,7 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { PokedexComponent } from './Components/pokedex/pokedex.component';
 import { PokemonDetailComponent } from './Components/pokemondetail/pokemondetail.component';
+import { BattlesComponent } from './Components/battles/battles.component';
 
 
 const routes: Routes = [
@@ -12,8 +13,9 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'pokemons', component: PokedexComponent, canActivate: [AuthGuard] },
   { path: 'pokemon/:id', component: PokemonDetailComponent, canActivate: [AuthGuard] },
-];
+  { path: 'battles', component: BattlesComponent, canActivate: [AuthGuard] },
 
+]; 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

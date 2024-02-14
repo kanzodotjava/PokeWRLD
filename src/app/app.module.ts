@@ -6,9 +6,11 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './Components/homepage/homepage.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { PokedexComponent } from './Components/pokedex/pokedex.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { PokemonTypeBackgroundPipe } from "./Pipes/pokemontypebackground.pipe";
 import { PokemonDetailComponent } from './Components/pokemondetail/pokemondetail.component';
+import { HttpsInterceptor } from './Interceptors/http.interceptor';
+import { BattlesComponent } from './Components/battles/battles.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { PokemonDetailComponent } from './Components/pokemondetail/pokemondetail
     DashboardComponent,
     PokedexComponent,
     PokemonTypeBackgroundPipe,
-    PokemonDetailComponent
+    PokemonDetailComponent,
+    BattlesComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,8 @@ import { PokemonDetailComponent } from './Components/pokemondetail/pokemondetail
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpsInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

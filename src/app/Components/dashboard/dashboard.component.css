@@ -1,4 +1,3 @@
-/* Estilo para a homepage */
 @import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
 
 .dashboard-container {
@@ -57,16 +56,16 @@
 
 .pokedex-button {
   padding: 10px 20px;
-  background-color: #4CAF50; /* Cor de fundo verde */
-  color: black; /* Cor do texto branca */
+  background-color: #4CAF50; 
+  color: black; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  display: block; /* Torna o botão um elemento de bloco para ocupar a largura total disponível */
+  display: block; 
   margin: 0 auto;
 }
 
   .pokedex-button:hover {
-    background-color: #45a049; /* Altera a cor de fundo quando o cursor passa sobre o botão */
+    background-color: #45a049;
   }
