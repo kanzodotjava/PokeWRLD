@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Honk&display=swap');
 
 .dashboard-container {
+  background-image: url('/../../assets/backg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   max-width: 600px;
   margin: 0 auto;
   padding: 20px;
