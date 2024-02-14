@@ -28,6 +28,9 @@ export class PokedexComponent implements OnInit {
         this.filteredPokemons = pokemons;
       }
     );
+    this.loadFavorites();
+
+
   }
   
   searchPokemon() {
@@ -83,5 +86,9 @@ export class PokedexComponent implements OnInit {
   
   viewPokemonDetails(pokemonId: number): void {
     this.router.navigate(['/pokemon', pokemonId]);
+  }
+
+  loadFavorites() {
+    this.favoritePokemons = this.pokemonService.getAllFavorites();
   }
 }
