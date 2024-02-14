@@ -2,7 +2,7 @@
   <h1>Pokedex</h1>
   <div class="button-container">
     <button class="dashboard-button" (click)="loadDashboard()">Dashboard</button>
-    <div class="button-margin"></div> 
+    <div class="button-margin"></div>
     <button class="favorites-button" (click)="toggleFavoritesMode()">
       {{ showFavorites ? 'Show All Pokemons' : 'Show Favorites' }}
     </button>
@@ -10,12 +10,12 @@
   <p></p>
 
   <div class="search-bar">
-    <input type="text" placeholder="Search by name or ID" [(ngModel)]="searchQuery" (input)="searchPokemon()">
+    <input type="text" placeholder="Search..." [(ngModel)]="searchQuery" (input)="searchPokemon()">
   </div>
   <p></p>
 
   <div class="pokemon-card-list">
-    <div *ngFor="let pokemon of filteredPokemons">
+    <div *ngFor="let pokemon of getPageItems()">
       <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()" (click)="viewPokemonDetails(pokemon.id)">
         <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
         <h2>{{ pokemon.name }}</h2>
@@ -30,18 +30,32 @@
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="favorites-container" *ngIf="showFavorites && favoritePokemons.length > 0">
-      <div *ngFor="let pokemon of favoritePokemons">
-        <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()" (click)="viewPokemonDetails(pokemon.id)">
-          <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
-          <h2>{{ pokemon.name }}</h2>
-          <p>ID: {{ pokemon.id }}</p>
-          <p>Height: {{ pokemon.height }} m</p>
-          <p>Weight: {{ pokemon.weight }} kg</p>
-          <div class="types">
-            <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
-          </div>
-        </div>
+
+  <div class="page-button-container" *ngIf="!showFavorites">
+    <button class="page-button" (click)="prevPage()" [disabled]="isFirstPage()">Previous</button> &nbsp;&nbsp;
+    <button class="page-button" (click)="nextPage()" [disabled]="isLastPage()">Next</button>
+  </div>
+  <div *ngIf="!showFavorites">
+    <span class="page-indicator">{{ currentPage }} / {{ getTotalPages() }}</span>
+  </div>
+</div>
+
+
+<div class="favorites-container" *ngIf="showFavorites && favoritePokemons.length > 0">
+  <div *ngFor="let pokemon of favoritePokemons">
+    <div class="pokemon-card" [ngClass]="'type-' + pokemon.types[0].toLowerCase()" (click)="viewPokemonDetails(pokemon.id)">
+      <img [src]="getPokemonImage(pokemon.id)" [alt]="pokemon.name" />
+      <h2>{{ pokemon.name }}</h2>
+      <p>ID: {{ pokemon.id }}</p>
+      <p>Height: {{ pokemon.height }} m</p>
+      <p>Weight: {{ pokemon.weight }} kg</p>
+      <div class="types">
+        <span *ngFor="let type of pokemon.types" [class]="'type-' + type.toLowerCase()" [style]="type | pokemonTypeBackground">{{ type }}</span>
       </div>
+      <button class="remove-favorite-button" (click)="removeFromFavorites(pokemon)">Remove from Favorites</button>
     </div>
+  </div>
+</div>
+

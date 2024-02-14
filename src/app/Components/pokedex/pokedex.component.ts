@@ -14,6 +14,8 @@ export class PokedexComponent implements OnInit {
   searchQuery: string = '';
   showFavorites: boolean = false;
   favoritePokemons: Pokemon[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 30;
 
   constructor(private router: Router, private pokemonService: PokemonService) { }
 
@@ -46,7 +48,7 @@ export class PokedexComponent implements OnInit {
     );
 
     this.filteredPokemons = searchResult;
-    return;
+    this.currentPage = 1; 
   }
 
   getPokemonImage(id: number): string {
@@ -59,6 +61,7 @@ export class PokedexComponent implements OnInit {
     } else {
       this.filteredPokemons = this.pokemons.filter(pokemon => pokemon.favorite);
     }
+    this.currentPage = 1; 
     this.showFavorites = !this.showFavorites;
   }
 
@@ -91,4 +94,35 @@ export class PokedexComponent implements OnInit {
   loadFavorites() {
     this.favoritePokemons = this.pokemonService.getAllFavorites();
   }
+
+  nextPage(): void {
+    if (this.currentPage < this.getTotalPages()) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage(): void {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  isFirstPage(): boolean {
+    return this.currentPage === 1;
+  }
+
+  isLastPage(): boolean {
+    return this.currentPage === this.getTotalPages();
+  }
+
+  getTotalPages(): number {
+    return Math.ceil(this.filteredPokemons.length / this.itemsPerPage);
+  }
+
+  getPageItems(): Pokemon[] {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    return this.filteredPokemons.slice(startIndex, startIndex + this.itemsPerPage);
+  }
+
 }
+
